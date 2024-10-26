@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="p-6 flex justify-between items-center bg-white shadow-md">
+        <div href="index.html" class="text-2xl font-bold">AQUAFLOW</div>
+        <nav class="flex gap-6">
+            <a href="index.html" class="text-gray-700 hover:text-blue-500">Aquaflow</a>
+            <a href="#" class="text-gray-700 hover:text-blue-500">FAQ</a>
+        </nav>
+    </header>
+
+    <!-- FAQ Section -->
+    <div class="flex-grow flex flex-col items-center justify-center p-10 bg-gray-50">
+        <h1 class="text-3xl font-bold text-gray-800 mb-12">Have Questions? We've Got Answers.</h1>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 text-center">
+            <!-- FAQ Item 1 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-wine-bottle text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Bottle PureVis™ 2</p>
+            </div>
+           
+            <!-- FAQ Item 3 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-tint text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Filtered Bottle</p>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-filter text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Pitcher PureVis™</p>
+            </div>
+            <!-- FAQ Item 5 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-glass-martini text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Drinkware</p>
+            </div>
+            <!-- FAQ Item 6 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-cogs text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Accessories</p>
+            </div>
+            <!-- FAQ Item 7 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-sync-alt text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Subscription</p>
+            </div>
+            <!-- FAQ Item 8 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-shipping-fast text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Shipping & Returns</p>
+            </div>
+            <!-- FAQ Item 9 -->
+            <div class="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:text-blue-500">
+                <i class="fas fa-shield-alt text-5xl text-red-500 mb-4 transition-all duration-300 hover:text-blue-500"></i>
+                <p class="text-gray-800 font-semibold">Warranty</p>
+            </div>
+        </div>
+        <div class="max-w-3xl mx-auto mt-16 p-8 bg-white shadow-lg rounded-lg">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Frequently Asked Questions</h2>
+        
+            <div x-data="{ open: null }">
+                <!-- Question 1 -->
+                <div class="border-b border-gray-200">
+                    <button @click="open === 1 ? open = null : open = 1" 
+                            class="flex justify-between w-full py-6 text-left text-gray-800 text-lg font-semibold hover:text-blue-500 focus:outline-none">
+                        <span>How does the PureVis™ technology work?</span>
+                        <i :class="open === 1 ? 'fas fa-chevron-up' : 'fas fa-chevron-down'" class="text-gray-500"></i>
+                    </button>
+                    <div x-show="open === 1" class="p-6 text-gray-700 text-base">
+                        PureVis™ technology uses UV-C light to eliminate up to 99.9% of bio-contaminants from your water, making it safe to drink.
+                    </div>
+                </div>
+        
+                <!-- Question 2 -->
+                <div class="border-b border-gray-200">
+                    <button @click="open === 2 ? open = null : open = 2" 
+                            class="flex justify-between w-full py-6 text-left text-gray-800 text-lg font-semibold hover:text-blue-500 focus:outline-none">
+                        <span>Can I use the bottle with hot liquids?</span>
+                        <i :class="open === 2 ? 'fas fa-chevron-up' : 'fas fa-chevron-down'" class="text-gray-500"></i>
+                    </button>
+                    <div x-show="open === 2" class="p-6 text-gray-700 text-base">
+                        No, the PureVis™ bottle is designed for cold and room temperature water only. Using hot liquids may damage the UV-C light.
+                    </div>
+                </div>
+        
+                <!-- Question 3 -->
+                <div class="border-b border-gray-200">
+                    <button @click="open === 3 ? open = null : open = 3" 
+                            class="flex justify-between w-full py-6 text-left text-gray-800 text-lg font-semibold hover:text-blue-500 focus:outline-none">
+                        <span>How often should I replace the filter?</span>
+                        <i :class="open === 3 ? 'fas fa-chevron-up' : 'fas fa-chevron-down'" class="text-gray-500"></i>
+                    </button>
+                    <div x-show="open === 3" class="p-6 text-gray-700 text-base">
+                        We recommend replacing the filter every 2 months for optimal performance, depending on usage.
+                    </div>
+                </div>
+        
+                <!-- Question 4 -->
+                <div class="border-b border-gray-200">
+                    <button @click="open === 4 ? open = null : open = 4" 
+                            class="flex justify-between w-full py-6 text-left text-gray-800 text-lg font-semibold hover:text-blue-500 focus:outline-none">
+                        <span>Is the bottle dishwasher safe?</span>
+                        <i :class="open === 4 ? 'fas fa-chevron-up' : 'fas fa-chevron-down'" class="text-gray-500"></i>
+                    </button>
+                    <div x-show="open === 4" class="p-6 text-gray-700 text-base">
+                        The bottle is not dishwasher safe. We recommend hand washing with mild soap and water to maintain its functionality.
+                    </div>
+                </div>
+        
+                <!-- Question 5 -->
+                <div class="border-b border-gray-200">
+                    <button @click="open === 5 ? open = null : open = 5" 
+                            class="flex justify-between w-full py-6 text-left text-gray-800 text-lg font-semibold hover:text-blue-500 focus:outline-none">
+                        <span>What is the warranty period for the bottle?</span>
+                        <i :class="open === 5 ? 'fas fa-chevron-up' : 'fas fa-chevron-down'" class="text-gray-500"></i>
+                    </button>
+                    <div x-show="open === 5" class="p-6 text-gray-700 text-base">
+                        The bottle comes with a one-year warranty covering any manufacturing defects. Please contact support for more details.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.0.0/dist/cdn.min.js"></script>
+        
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white p-6 mt-6 shadow-md">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-600">&copy; 2024 AQUAFLOW. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

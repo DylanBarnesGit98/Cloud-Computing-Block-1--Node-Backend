@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Comments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+    <!-- Navbar -->
+    <header class="p-6 flex justify-between items-center bg-white shadow-md">
+        <div href="index.html" class="text-2xl font-bold">AQUAFLOW</div>
+        <nav class="flex gap-6">
+            <a href="index.html" class="text-gray-700 hover:text-blue-500">Aquaflow</a>
+            <a href="page3.html" class="text-gray-700 hover:text-blue-500">FAQ</a>
+        </nav>
+    </header>
+
+    <div class="flex-grow flex items-center justify-center">
+        <div class="relative w-full max-w-6xl mx-auto mt-10">
+            <!-- Back to Home Button -->
+            <a href="index.html" class="absolute top-0 left-0 px-4 py-2 text-center text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">Back to Home</a>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mt-16">
+                <h1 class="text-2xl font-bold mb-2 text-gray-800">All Customer Reviews</h1>
+                <p class="text-gray-600 mb-4">What people think about our products and services.</p>
+                <ul id="comments-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white p-6 mt-6 shadow-md">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-600">&copy; 2024 AQUAFLOW. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to generate a random star rating (1 to 5)
+        function getRandomStarRating() {
+            const rating = Math.floor(Math.random() * 3) + 3; // Random number between 3 and 5
+            return '★'.repeat(rating) + '☆'.repeat(5 - rating); // Fill stars based on the rating
+        }
+
+        async function loadComments() {
+            const response = await fetch('/comments');
+            const comments = await response.json();
+
+            // Dynamically create list items for each comment
+            const list = document.getElementById("comments-list");
+            comments.forEach(c => {
+                const item = document.createElement("li");
+                item.classList.add("p-4", "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow-sm", "flex", "flex-col");
+                
+                // Create profile picture with initials
+                const initials = c.name.split(" ").map(name => name[0]).join("").toUpperCase(); // Get initials
+                const profilePic = document.createElement("div");
+
+                // Random background color for profile picture
+                const randomColor = `hsl(${Math.random() * 360}, 70%, 70%)`; // Lighter shade for profile pic
+                profilePic.style.backgroundColor = randomColor;
+                profilePic.classList.add("w-12", "h-12", "rounded-full", "flex", "items-center", "justify-center", "text-white", "font-bold", "mb-2");
+                profilePic.textContent = initials;
+
+                const name = document.createElement("h3");
+                name.classList.add("font-semibold", "text-gray-700");
+                name.textContent = c.name;
+
+                // Create star rating element
+                const rating = document.createElement("p");
+                rating.classList.add("text-yellow-500", "font-bold");
+                rating.textContent = getRandomStarRating(); // Generate and display the star rating
+
+
+                const text = document.createElement("p");
+                text.classList.add("text-sm", "text-gray-500");
+                text.textContent = c.comment;
+
+
+                // Append elements to the item
+                item.appendChild(profilePic);
+                item.appendChild(name);
+                item.appendChild(rating); // Append the rating
+                item.appendChild(text);
+
+                // Add the item to the list
+                list.appendChild(item);
+            });
+        }
+
+        // Load comments on page load
+        loadComments();
+    </script>
+</body>
+</html>
